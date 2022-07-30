@@ -18,7 +18,10 @@ type ArgsGetTe = {
 }
 
 export const getTe = ({ verb }: ArgsGetTe): Spellings => {
-  const { base, type, ending } = verb
+  const { type } = verb
+  if (type === "irregular") return verb.te.affirmative
+
+  const { base, ending } = verb
   let suffix = ""
 
   if (type === "ichidan") suffix = "て"

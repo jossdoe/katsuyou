@@ -1,11 +1,11 @@
 import { Verb } from "../../../types"
 
-export const shawaaoabiru: Verb = {
+export const abiru: Verb = {
   type: "ichidan",
   ending: "る",
   base: {
-    kana: "シャワーをあび",
-    kanji: "シャワーを浴び",
-    html: "シャワーを<ruby>浴<rt>あ</rt></ruby>び",
+    kana: "あび",
+    kanji: "浴び",
+    html: "<ruby>浴<rt>あ</rt></ruby>び",
   },
 }

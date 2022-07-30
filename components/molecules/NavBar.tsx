@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import NavBarLink from "../atoms/NavBarLink"
 
@@ -8,9 +9,16 @@ export type NavBarProps = {
 
 const NavBar: React.FC<NavBarProps> = ({ active, className }) => {
   return (
-    <nav className={`bg-white shadow-sm ${className}`}>
-      <div className="flex max-w-lg mx-auto justify-center">
-        <NavBarLink href="/" active={active === "quiz"}>
+    <nav className={`bg-white ${className}`}>
+      <div className="flex max-w-lg w-[600px] mx-auto items-center">
+        <div className="flex-1">
+          <Link href="/">
+            <a>
+              <img className="p-4" src="/fujisan.png" width="72px" />
+            </a>
+          </Link>
+        </div>
+        <NavBarLink href="/quiz" active={active === "quiz"}>
           Quiz
         </NavBarLink>
         <NavBarLink href="/dictionary" active={active === "dictionary"}>

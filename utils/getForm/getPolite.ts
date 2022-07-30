@@ -24,7 +24,15 @@ export const getPolite = ({
   negative = false,
   tense = "non-past",
 }: ArgsGetPolite): Spellings => {
-  const { base, type, ending } = verb
+  const { type } = verb
+  if (type === "irregular") {
+    if (negative && tense === "past") return verb.politePast.negative
+    if (negative && tense === "non-past") return verb.polite.negative
+    if (!negative && tense === "past") return verb.politePast.affirmative
+    return verb.polite.affirmative
+  }
+
+  const { base, ending } = verb
   let suffix = ""
 
   if (tense === "non-past") {

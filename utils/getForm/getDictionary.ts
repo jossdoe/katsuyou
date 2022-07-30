@@ -36,8 +36,15 @@ export const getDictionary = ({
   negative = false,
   tense = "non-past",
 }: ArgsGetDictionary): Spellings => {
-  const { base, type, ending } = verb
+  const { type } = verb
+  if (type === "irregular") {
+    if (negative && tense === "past") return verb.dictionaryPast.negative
+    if (negative && tense === "non-past") return verb.dictionary.negative
+    if (!negative && tense === "past") return verb.dictionaryPast.affirmative
+    return verb.dictionary.affirmative
+  }
 
+  const { base, ending } = verb
   let suffix: string = ""
 
   if (tense === "non-past") {

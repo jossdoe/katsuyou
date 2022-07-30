@@ -9,7 +9,9 @@
     "classnames": "^2.3.1",
     "next": "latest",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-icons": "^4.4.0",
+    "wanakana": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.35",

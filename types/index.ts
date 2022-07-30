@@ -10,15 +10,27 @@ export type VerbRegular = {
   base: Spellings
 }
 
-// TODO
 export type VerbIrregular = {
   type: "irregular"
-  ending: "う" | "つ" | "る" | "む" | "ぶ" | "ぬ" | "く" | "ぐ" | "す"
-  base: Spellings
+  dictionary: {
+    affirmative: Spellings
+    negative: Spellings
+  }
+  dictionaryPast: {
+    affirmative: Spellings
+    negative: Spellings
+  }
+  polite: {
+    affirmative: Spellings
+    negative: Spellings
+  }
+  politePast: {
+    affirmative: Spellings
+    negative: Spellings
+  }
+  te: {
+    affirmative: Spellings
+  }
 }
 
-export type Verb = {
-  type: "ichidan" | "godan" | "irregular"
-  ending: "う" | "つ" | "る" | "む" | "ぶ" | "ぬ" | "く" | "ぐ" | "す"
-  base: Spellings
-}
+export type Verb = VerbRegular | VerbIrregular

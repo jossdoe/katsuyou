@@ -1,23 +1,28 @@
 import Link from "next/link"
 import React from "react"
+import cn from "classnames"
 
-export type NavBarProps = {
+export type NavBarLinkProps = {
   active?: boolean
   className?: string
   children: string
   href: string
 }
 
-const NavBar: React.FC<NavBarProps> = ({
+const NavBarLink: React.FC<NavBarLinkProps> = ({
   active,
   children,
   className,
   href,
 }) => {
+  const conditionals = cn({
+    "border-b-2 border-red-500": false,
+  })
+
   return (
     <Link href={href}>
       <a
-        className={`block w-40 bg-slate-300 py-4 px-6 text-center ${className}`}
+        className={`block w-32 py-4 px-6 text-center font-semibold text-slate-500 hover:text-slate-600 ${className} ${conditionals}`}
       >
         {children}
       </a>
@@ -25,4 +30,4 @@ const NavBar: React.FC<NavBarProps> = ({
   )
 }
 
-export default NavBar
+export default NavBarLink
