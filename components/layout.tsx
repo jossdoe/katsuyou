@@ -44,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children, active }) => {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <NavBar active={active} />
-      <main className="w-full max-w-lg mx-auto px-8 py-8 mb-6">{children}</main>
+      <main className="w-full max-w-lg mx-auto px-8 py-8 mb-8">{children}</main>
       <footer className="w-48 mx-auto text-slate-400 mb-8">
         <div className="mb-2">
           <a href="https://github.com/jossdoe/katsuyou" target="_blank">

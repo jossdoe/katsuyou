@@ -1,6 +1,7 @@
 import React from "react"
 import { QuizAction } from "../../hooks/useQuiz"
 import BaseButton from "../atoms/BaseButton"
+import InputNumber from "../molecules/InputNumber"
 
 export type GameStepStartProps = {
   dispatch: (value: QuizAction) => void
@@ -11,6 +12,24 @@ const GameStepStart: React.FC<GameStepStartProps> = ({
   dispatch,
   verbCountValue,
 }) => {
+  function decreaseVerbsByOne() {
+    if (verbCountValue > 1) {
+      dispatch({
+        type: "SET_TOTAL_QUESTIONS",
+        payload: verbCountValue - 1,
+      })
+    }
+  }
+
+  function increaseVerbsByOne() {
+    if (verbCountValue < 20) {
+      dispatch({
+        type: "SET_TOTAL_QUESTIONS",
+        payload: verbCountValue + 1,
+      })
+    }
+  }
+
   return (
     <>
       <img className="block mx-auto mb-6" width="300" src="/start.png" />
@@ -18,25 +37,17 @@ const GameStepStart: React.FC<GameStepStartProps> = ({
         Start Quiz
       </h2>
       <div className="mb-12">
-        <label>
-          <label className="block w-[14rem] mx-auto text-center">
-            <div className="font-semibold text-slate-500 mb-1">
-              Number of Verbs
-            </div>
-            <input
-              className="block bg-white mb-8 px-4 py-2 rounded-lg border border-slate-400 w-full shadow-inner text-center placeholder:text-center"
-              type="number"
-              value={verbCountValue}
-              min="1"
-              onChange={(e) =>
-                dispatch({
-                  type: "SET_TOTAL_QUESTIONS",
-                  payload: parseInt(e.currentTarget.value),
-                })
-              }
-            />
-          </label>
-        </label>
+        <div className="block w-[14rem] mx-auto">
+          <div className="font-semibold text-slate-500 mb-2 text-center">
+            Number of Verbs
+          </div>
+          <InputNumber
+            className="w-40 mx-auto"
+            currentValue={verbCountValue}
+            decreaseByOne={decreaseVerbsByOne}
+            increaseByOne={increaseVerbsByOne}
+          />
+        </div>
       </div>
       <div className="text-center">
         <BaseButton
