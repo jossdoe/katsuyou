@@ -77,12 +77,21 @@ const GameStepLoop: React.FC<GameStepLoopProps> = ({
       <div className="w-20 mx-auto mb-4 bg-slate-300 text-center opacity-60 rounded-full">
         {currentVerbCount} / {totalVerbCount}
       </div>
-      <div
-        className="text-center text-4xl mb-6"
-        dangerouslySetInnerHTML={{
-          __html: getDictionary({ verb: currentVerb }).html,
-        }}
-      />
+      <div className="mb-12">
+        <div
+          className="text-center text-4xl mb-4"
+          dangerouslySetInnerHTML={{
+            __html: getDictionary({ verb: currentVerb }).html,
+          }}
+        />
+        {currentStep === "solution" && (
+          <div className="text-center">
+            <div className=" bg-slate-500 text-slate-100 py-1 px-6 font-semibold text-xs inline-block rounded-full uppercase">
+              {currentVerb.type}
+            </div>
+          </div>
+        )}
+      </div>
       <div className="w-[16rem] mx-auto mb-12">
         <QuizInputField
           className="mb-4"

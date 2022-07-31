@@ -45,10 +45,10 @@ const Layout: React.FC<LayoutProps> = ({ children, active }) => {
       </Head>
       <NavBar active={active} />
       <main className="w-full max-w-lg mx-auto px-8 py-8 mb-6">{children}</main>
-      <footer className="w-48 mx-auto opacity-60">
+      <footer className="w-48 mx-auto text-slate-400 mb-8">
         <div className="mb-2">
           <a href="https://github.com/jossdoe/katsuyou" target="_blank">
-            <FaGithubSquare className="mx-auto text-2xl" />
+            <FaGithubSquare className="mx-auto text-3xl" />
           </a>
         </div>
       </footer>

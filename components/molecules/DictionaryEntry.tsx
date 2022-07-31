@@ -28,7 +28,7 @@ const DictionaryEntry: React.FC<DictionaryEntryProps> = ({
       htmlNegative: getDictionary({ verb, negative: true }).html,
     },
     {
-      title: "Dictionary, past",
+      title: "Past",
       htmlAffirmative: getDictionary({ verb, tense: "past" }).html,
       htmlNegative: getDictionary({ verb, tense: "past", negative: true }).html,
     },
@@ -51,17 +51,19 @@ const DictionaryEntry: React.FC<DictionaryEntryProps> = ({
 
   return (
     <div className={className}>
-      <DictionaryEntryRow
-        title=""
-        htmlAffirmative="<b>Affirmative</b>"
-        htmlNegative="<b>Negative</b>"
-      />
+      <div className={`flex font-bold text-xs mb-2 text-center`}>
+        <div className="flex-[2] mr-1 p-2" />
+        <div className="flex-[3] mr-1 p-2">Affirmative</div>
+        <div className="flex-[3] p-2">Negative</div>
+      </div>
       {conjugations.map(({ title, htmlAffirmative, htmlNegative }) => (
         <DictionaryEntryRow
           key={title}
           title={title}
           htmlAffirmative={htmlAffirmative}
           htmlNegative={htmlNegative}
+          className="mb-1"
+          hasBackground
         />
       ))}
     </div>

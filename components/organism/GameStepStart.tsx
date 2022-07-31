@@ -21,7 +21,7 @@ const GameStepStart: React.FC<GameStepStartProps> = ({
         <label>
           <label className="block w-[14rem] mx-auto text-center">
             <div className="font-semibold text-slate-500 mb-1">
-              Amount of Questions
+              Number of Verbs
             </div>
             <input
               className="block bg-white mb-8 px-4 py-2 rounded-lg border border-slate-400 w-full shadow-inner text-center placeholder:text-center"

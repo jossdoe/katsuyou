@@ -10,7 +10,7 @@ export type NavBarProps = {
 const NavBar: React.FC<NavBarProps> = ({ active, className }) => {
   return (
     <nav className={`bg-white ${className}`}>
-      <div className="flex max-w-lg w-[600px] mx-auto items-center">
+      <div className="flex max-w-[600px] mx-auto items-center">
         <div className="flex-1">
           <Link href="/">
             <a>
